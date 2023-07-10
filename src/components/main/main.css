@@ -1,0 +1,10 @@
+main{
+    margin: 0px;
+    padding: 0px;
+    width: 85%;
+    min-height: 600px;
+
+    border: 1px solid red;
+
+    box-sizing: border-box;
+}

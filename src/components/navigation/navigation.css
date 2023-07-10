@@ -1,0 +1,15 @@
+nav{
+    margin: 0px;
+    padding: 0px;
+    width: 15%;
+    min-height: 100%;
+    overflow: hidden;
+    
+    background-color: darkslategray;
+
+    box-sizing: border-box;
+
+    position: fixed;
+    left: 0px;
+    top: 0px;
+}
