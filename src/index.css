@@ -2,6 +2,9 @@ body {
     margin: 0px;
     padding: 0px;
 
+    background-image: url('./images/backgroundImage.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: Calibri;
 
     box-sizing: border-box;

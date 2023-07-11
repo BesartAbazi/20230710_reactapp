@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, NavLink, Link } from 'react-router-dom';
-import Header from './components/header/header.js';
-import Navigation from './components/navigation/navigation.js';
-import Main from './components/main/main.js';
+import Header from './components/Header/header.js';
+import Navigation from './components/Navigation/navigation.js';
+import WelcomePage from './components/WelcomePage/welcomePage.js'
+import Main from './components/Main/main.js';
 import './App.css';
 
 function App() {
@@ -10,7 +11,11 @@ function App() {
         <BrowserRouter>
             <Navigation />
             <Header />
-            <Main />
+            <Main>
+                <Routes>
+                    <Route path='/' element={<WelcomePage/>}/>
+                </Routes>
+            </Main>
         </BrowserRouter>
     );
 }

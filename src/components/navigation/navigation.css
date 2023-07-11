@@ -18,16 +18,20 @@ nav{
     align-items: flex-start;
     justify-content: right;
     align-content: flex-start;
+
+    z-index: 10;
 }
 
 .navActive{
     width: 15%;
     transition: width 0.2s;
+    opacity: 0.94;
 }
 
 .navNonActive{
     width: 40px;
     transition: width 0.2s;
+    opacity: 1;
 }
 
 .navNonActive:hover{
@@ -35,7 +39,7 @@ nav{
     cursor: pointer;
 }
 
-img{
+nav img{
     margin: 20px 4px 20px 0px;
     padding: 0px;
     width: 30px;
@@ -45,7 +49,7 @@ img{
     box-sizing: border-box;
 }
 
-a{
+nav a{
     margin: 0px;
     padding: 0px;
     width: 100%;
@@ -60,7 +64,7 @@ a{
     box-sizing: border-box;
 }
 
-a:hover{
+nav a:hover{
     background-color: rgb(33, 68, 68);
 }
 

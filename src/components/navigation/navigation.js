@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route, NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import data
 import { default as linkData } from '../../data/linksList.js';
 // import css
 import './navigation.css';
 // import logos
 import { default as menuLogo } from '../../icons/menu.svg';
-import { default as arrowLeft } from '../../icons/arrowLeft.svg';
 
-function Navigation() {
+const Navigation = () => {
     const [navBarActive, setNavBarActive] = useState(false);
 
     const handleNavBar = () => {
@@ -16,10 +15,10 @@ function Navigation() {
     }
 
     const toggleNavBarPanel = (panelID) => {
-        if (document.getElementById(panelID).style.display == 'none' || document.getElementById(panelID).style.display == '')
+        if (document.getElementById(panelID).style.display == '')
             document.getElementById(panelID).style.display = 'flex';
         else
-            document.getElementById(panelID).style.display = 'none';
+            document.getElementById(panelID).style.display = '';
     }
 
     return (
@@ -44,8 +43,8 @@ function Navigation() {
                                     {
                                         link.panelItems?.map((item) => {
                                             return (
-                                                <Link to={`/${link.label}/:${item.id}`}>
-                                                    { item.id }
+                                                <Link to={`/${link.label}/${item.id}`}>
+                                                    { item.header }
                                                 </Link>
                                             );
                                         })
