@@ -1,10 +1,9 @@
 nav{
     margin: 0px;
     padding: 0px;
-    width: 15%;
-    min-height: 100%;
+    height: 100%;
     overflow: hidden;
-    
+
     background-color: darkslategray;
 
     box-sizing: border-box;
@@ -12,4 +11,99 @@ nav{
     position: fixed;
     left: 0px;
     top: 0px;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: right;
+    align-content: flex-start;
+}
+
+.navActive{
+    width: 15%;
+    transition: width 0.2s;
+}
+
+.navNonActive{
+    width: 40px;
+    transition: width 0.2s;
+}
+
+.navNonActive:hover{
+    background-color: rgb(62, 99, 99);
+    cursor: pointer;
+}
+
+img{
+    margin: 20px 4px 20px 0px;
+    padding: 0px;
+    width: 30px;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+}
+
+a{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+
+    font-size: 16px;
+    color: white;
+    line-height: 40px;
+
+    text-decoration: none;
+    text-align: center;
+
+    box-sizing: border-box;
+}
+
+a:hover{
+    background-color: rgb(33, 68, 68);
+}
+
+.navPanel{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+
+    font-size: 18px;
+    color: white;
+    line-height: 40px;
+    cursor: pointer;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.navPanel:hover{
+    background-color: rgb(62, 99, 99);
+}
+
+.navPanel a:hover{
+    background-color: rgb(62, 99, 99);
+}
+
+.navPanelItems{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+
+    background-color: rgb(25, 54, 54);
+
+    box-sizing: border-box;
+
+    display: none;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: right;
+    align-content: flex-start;
 }

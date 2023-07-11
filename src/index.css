@@ -2,9 +2,17 @@ body {
     margin: 0px;
     padding: 0px;
 
+    font-family: Calibri;
+
     box-sizing: border-box;
+}
+
+#root{
+    margin: 0px;
+    padding: 0px;
 
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: flex-start;
 }
