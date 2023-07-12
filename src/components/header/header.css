@@ -4,7 +4,7 @@ header{
     width: 100%;
     min-height: 60px;
 
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid darkslategray;
     background-color: white;
 
     box-sizing: border-box;
@@ -21,8 +21,9 @@ header a {
     width: auto;
     height: auto;
 
-    color: black;
-    font-size: 18px;
+    color: darkslategray; 
+    font-weight: bold;
+    font-size: 16px;
     text-decoration: none;
 
     display: flex;

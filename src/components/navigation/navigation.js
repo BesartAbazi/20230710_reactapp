@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 // import data
 import { default as linkData } from '../../data/linksList.js';
@@ -10,15 +10,22 @@ import { default as menuLogo } from '../../icons/menu.svg';
 const Navigation = () => {
     const [navBarActive, setNavBarActive] = useState(false);
 
+    useEffect(() => {
+        let root = document.getElementById('root');
+        navBarActive ? 
+            root.style.alignItems = 'flex-end' : 
+            root.style.alignItems = 'center';
+    }, [navBarActive]);
+
     const handleNavBar = () => {
         setNavBarActive(!navBarActive);
     }
 
     const toggleNavBarPanel = (panelID) => {
-        if (document.getElementById(panelID).style.display == '')
-            document.getElementById(panelID).style.display = 'flex';
-        else
-            document.getElementById(panelID).style.display = '';
+        let panel = document.getElementById(panelID);
+        panel.style.display === '' ?
+            panel.style.display = 'flex' :
+            panel.style.display = '';
     }
 
     return (
@@ -31,12 +38,9 @@ const Navigation = () => {
                             <>
                                 <div className="navPanel" onClick={ () => { toggleNavBarPanel(link.id)} }> 
                                     {
-                                        link.panelItems ?
-                                            link.label
-                                            :
-                                            <Link to={ link.path }>
-                                                { link.label }
-                                            </Link>
+                                        <Link to={ link.url }>
+                                            { link.label }
+                                         </Link>
                                     } 
                                 </div>
                                 <div className="navPanelItems" id={ link.id }>

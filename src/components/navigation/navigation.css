@@ -25,13 +25,11 @@ nav{
 .navActive{
     width: 15%;
     transition: width 0.2s;
-    opacity: 0.94;
 }
 
 .navNonActive{
     width: 40px;
     transition: width 0.2s;
-    opacity: 1;
 }
 
 .navNonActive:hover{

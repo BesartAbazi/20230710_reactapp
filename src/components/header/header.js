@@ -1,4 +1,4 @@
-import React, { ReactDOM } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 // import css
 import './header.css';
@@ -13,7 +13,7 @@ class Header extends React.Component {
 
     render() {
         return (
-            <header>
+            <header onMouseOver={this.handleOnMouseOver}>
                 <Link to='/Login'>
                     <img src={ userLogo } alt='userLogo'/> Login
                 </Link>

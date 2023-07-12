@@ -1,11 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react';
+import './welcomePage.css';
 
-class WelcomePage extends Component {
+class WelcomePage extends React.Component {
     render() {
         return (
-            <p>
-                Welcome
-            </p>
+            <main>
+                <p>
+                    This is the home page.
+                </p>
+            </main>
         )
     }
 }
