@@ -14,6 +14,8 @@ body {
     margin: 0px;
     padding: 0px;
 
+    box-sizing: border-box;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -45,4 +47,6 @@ main p {
     padding: 0px;
 
     font-size: 18px;
+
+    box-sizing: border-box;
 }

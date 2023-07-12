@@ -24,17 +24,18 @@ nav{
 
 .navActive{
     width: 15%;
-    transition: width 0.2s;
+    transition: all 0.2s;
 }
 
 .navNonActive{
     width: 40px;
-    transition: width 0.2s;
+    transition: all 0.2s;
 }
 
 .navNonActive:hover{
     background-color: rgb(62, 99, 99);
     cursor: pointer;
+    transition: all 0.2s;
 }
 
 nav img{
@@ -55,6 +56,7 @@ nav a{
     font-size: 16px;
     color: white;
     line-height: 40px;
+    transition: all 0.2s;
 
     text-decoration: none;
     text-align: center;
@@ -64,6 +66,7 @@ nav a{
 
 nav a:hover{
     background-color: rgb(33, 68, 68);
+    transition: all 0.2s;
 }
 
 .navPanel{
@@ -85,9 +88,6 @@ nav a:hover{
     justify-content: center;
 }
 
-.navPanel:hover{
-    background-color: rgb(62, 99, 99);
-}
 
 .navPanel a:hover{
     background-color: rgb(62, 99, 99);

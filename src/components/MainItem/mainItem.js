@@ -5,9 +5,13 @@ const NewsItem = (props) => {
     return (
         <div className='newsItem'>
             <div className='header'>
-                <b>Date: { props.date }
-                <br/>
-                Title: { props.header }</b>
+                <b>
+                    ID: { props.id }
+                    <br/>
+                    Date: { props.date }
+                    <br/>
+                    Title: { props.header }
+                </b>
             </div>
             <div className='text'>
                 { props.text }
