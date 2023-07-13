@@ -25,14 +25,14 @@ const News = () => {
 
     let [searchItems, setSearchItems] = useState([]);
     const [searchParams] = useSearchParams();
-    const searchValue = searchParams.get('searchValue');
+    let searchValue = searchParams.get('searchValue');
     useEffect(() => {
         setSearchItems([]);
 
         if (searchValue){
             console.log(searchValue)
             data.news.forEach((item) => {
-                if ((String(item.id).includes(String(searchValue))) || (String(item.date).includes(String(searchValue))) || (String(item.header).includes(String(searchValue))) || (String(item.text).includes(String(searchValue)))){
+                if ((String(item.id).includes(searchValue)) || (String(item.date).includes(searchValue)) || (String(item.header).includes(searchValue)) || (String(item.text).includes(searchValue))){
                     if (searchItems.findIndex((currentItem) => { return currentItem.id == item.id}) == -1){
                         setSearchItems ((prev) => [
                             ...prev,
@@ -44,7 +44,7 @@ const News = () => {
         }
     }, [searchValue]);
 
-    
+
     return (
         <main>{console.log(searchItems)}
             {   
