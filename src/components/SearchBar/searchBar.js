@@ -16,7 +16,7 @@ const SearchBar = (props) => {
             searchValue: searchValue.current.value
         }).toString();
 
-        navigate(searchQuery);
+        navigate(props.pathname + '?' + searchQuery);
     }
 
     return (
