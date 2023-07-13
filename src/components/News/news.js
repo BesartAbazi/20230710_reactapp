@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useParams, useLocation, useSearchParams } from 'react-router-dom';
 import MainItem from '../MainItem/mainItem';
 import SearchBar from '../SearchBar/searchBar';
 import data from '../../data/data';
+// CSS
+import './news.css';
 // Logos
 import { default as searchLogo } from '../../icons/search.svg';
 
@@ -13,9 +15,9 @@ const News = () => {
 
     const [newsData, setNewsData] = useState({});
     const [newsItemFound, setNewsItemFound] = useState(false);
-    useEffect(() => {    
+    useEffect(() => {
         data.news.forEach((item) => {
-            if (Number(item.id) === Number(id)){
+            if (Number(item.id) === Number(id)) {
                 setNewsData(item);
                 setNewsItemFound(true);
             }
@@ -25,51 +27,54 @@ const News = () => {
 
     let [searchItems, setSearchItems] = useState([]);
     const [searchParams] = useSearchParams();
-    let searchValue = searchParams.get('searchValue');
     useEffect(() => {
-        setSearchItems([]);
+        let searchValue = searchParams.get('searchValue');
+        const itemsFound = [];
 
-        if (searchValue){
-            console.log(searchValue)
+        if (searchValue) {
             data.news.forEach((item) => {
-                if ((String(item.id).includes(searchValue)) || (String(item.date).includes(searchValue)) || (String(item.header).includes(searchValue)) || (String(item.text).includes(searchValue))){
-                    if (searchItems.findIndex((currentItem) => { return currentItem.id == item.id}) == -1){
-                        setSearchItems ((prev) => [
-                            ...prev,
-                            item
-                        ]);
+                if ((String(item.id).includes(searchValue)) || (String(item.date).includes(searchValue)) || (String(item.header).includes(searchValue)) || (String(item.text).includes(searchValue))) {
+                    if (itemsFound.findIndex((currentItem) => { return Number(currentItem.id) === Number(item.id) }) == -1) {
+                        itemsFound.push(item)
                     }
                 }
-            })
+            });
         }
-    }, [searchValue]);
+
+        setSearchItems(itemsFound);
+    }, [searchParams]);
 
 
     return (
-        <main>{console.log(searchItems)}
-            {   
-                searchValue ?
+        <main>
+            {
+                searchParams.get('searchValue') && searchItems.length == 0 ?
                     <>
-                        <p> Values found:</p>
-                        <SearchBar pathname={pathname}/>
-                        {
-                            searchItems.map((item) => {
-                                return <MainItem id={item.id} date={item.date} header={item.header} text={item.text} />;
-                            })
-                        }
-                    </>
-                    :
-                    id && newsItemFound ?
-                        <MainItem id={newsData.id} date={newsData.date} header={newsData.header} text={newsData.text} />
-                        :
+                        <SearchBar pathname={pathname} />
+                        <p className='itemsFound'> No results </p>
+                    </> :
+                    searchItems.length > 0 ?
                         <>
-                            <SearchBar pathname={pathname}/>
+                            <SearchBar pathname={pathname} />
+                            <p className='itemsFound'> {searchItems.length} result{searchItems.length > 1 ? 's' : ''}: </p>
                             {
-                                data.news.map((item) => {
+                                searchItems.map((item) => {
                                     return <MainItem id={item.id} date={item.date} header={item.header} text={item.text} />;
                                 })
                             }
                         </>
+                        :
+                        id && newsItemFound ?
+                            <MainItem id={newsData.id} date={newsData.date} header={newsData.header} text={newsData.text} />
+                            :
+                            <>
+                                <SearchBar pathname={pathname} />
+                                {
+                                    data.news.map((item) => {
+                                        return <MainItem id={item.id} date={item.date} header={item.header} text={item.text} />;
+                                    })
+                                }
+                            </>
             }
         </main>
     )
