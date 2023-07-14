@@ -19,6 +19,7 @@
     min-height: 40px;
 
     background-color: rgb(144, 165, 165);
+    border-bottom: 1px solid black;
 
     box-sizing: border-box;
 }
