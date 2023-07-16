@@ -19,7 +19,7 @@ const links = [
         label: 'News',
         path: '/News/:id?',
         url: '/News',
-        route: <News/>,
+        route: <News searchObject='news'/>,
         panelItems: data.news
     },
     {
@@ -27,7 +27,7 @@ const links = [
         label: 'Objects',
         path: '/Objects/:id?',
         url: '/Objects',
-        route: <Objects/>,
+        route: <Objects searchObject='objects'/>,
         panelItems: data.objects
     },
     {

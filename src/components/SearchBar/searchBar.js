@@ -13,10 +13,11 @@ const SearchBar = (props) => {
             return;
 
         const searchQuery = new URLSearchParams({
+            searchObject: props.searchObject,
             searchValue: searchValue.current.value
         }).toString();
 
-        navigate(props.pathname + '?' + searchQuery);
+        navigate('/Search?' + searchQuery);
     }
 
     return (
