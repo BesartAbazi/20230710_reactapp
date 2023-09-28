@@ -11,7 +11,7 @@ const Objects = (props) => {
     const [objectItemFound, setObjectItemFound] = useState(false);
     useEffect(() => {
         data.objects.forEach((item) => {
-            if (Number(item.id) === Number(id)) {
+            if (item.id === id) {
                 setObjectData(item);
                 setObjectItemFound(true);
             }
@@ -27,7 +27,7 @@ const Objects = (props) => {
                     :
                     data.objects.map((item) => {
                         return (
-                            <MainItem id={item.id} date={item.date} header={item.header} text={item.text}/>
+                            <MainItem key={item.id} id={item.id} date={item.date} header={item.header} text={item.text}/>
                         )
                     })
             }

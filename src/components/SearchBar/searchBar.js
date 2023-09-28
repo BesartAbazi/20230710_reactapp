@@ -22,7 +22,7 @@ const SearchBar = (props) => {
 
     return (
         <div className='searchBar'>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={ onSubmit }>
                 <input type="text" placeholder='Search' className="searchInput" ref={searchValue} />
                 <button type="submit" className='searchButton'>
                     Search

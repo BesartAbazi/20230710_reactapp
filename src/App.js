@@ -15,7 +15,7 @@ function App() {
                 {
                     linkData.map((link) => {
                         return (
-                            <Route path={ link.path } element={ link.route }/>
+                            <Route key={ link.path } path={ link.path } element={ link.route }/>
                         )
                     })
                 }
