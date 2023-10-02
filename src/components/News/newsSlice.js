@@ -5,7 +5,7 @@ export const newsSlice = createSlice({
     initialState: {
         news: []
     },
-    reducer: {
+    reducers: {
         loadNews: (state, action) => {
             state.news = action.payload;
         },

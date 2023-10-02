@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 // import data
-import { default as linkData } from '../../data/linksList.js';
+import { default as navigationlinks } from '../../data/linksList.js';
+import store from '../../store/store.js';
 // import css
 import './navigation.css';
 // import logos
 import { default as menuLogo } from '../../icons/menu.svg';
+import Objects from '../Objects/objects.js';
 
 const Navigation = () => {
     const [navBarActive, setNavBarActive] = useState(false);
+
+    const linkItems = store.getState();
 
     useEffect(() => {
         let root = document.getElementById('root');
@@ -33,7 +37,7 @@ const Navigation = () => {
             <img src={ menuLogo } alt="menuLogo" onClick={ handleNavBar }/>
             {
                 navBarActive ? 
-                    linkData.map((link) => {
+                    navigationlinks.map((link) => {
                         return (
                             <>
                                 <div className="navPanel" onClick={ () => { toggleNavBarPanel(link.id)} }> 
@@ -43,15 +47,16 @@ const Navigation = () => {
                                          </Link>
                                     } 
                                 </div>
-                                <div className="navPanelItems" id={ link.id }>
+                                <div className="navPanelItems" id={ link.id }> {console.log(1, Objects.entries())}
                                     {
-                                        link.panelItems?.map((item) => {
+                                        linkItems[link.label][link.label] ? 
+                                        linkItems[link.label][link.label].map((item) => {
                                             return (
                                                 <Link to={`/${link.label}/${item.id}`}>
                                                     { item.header }
                                                 </Link>
                                             );
-                                        })
+                                        }) : null
                                     }
                                 </div>
                             </>

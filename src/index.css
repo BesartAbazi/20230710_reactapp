@@ -50,3 +50,32 @@ main p {
 
     box-sizing: border-box;
 }
+
+#addItem{
+    margin: 0px;
+    align-self: flex-start;
+
+    display: flex;
+    align-content: center;
+}
+
+#addItem a{
+    color: black;
+    
+    font-family: 'Calibri';
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+
+    align-self: flex-start;
+}
+
+#addItem a:hover{
+    color: rgb(62, 99, 99);
+}
+
+#addItem img{
+    margin: 0px 2px 0px 0px;
+    width: 14px;
+    border: 1px solid black;
+}

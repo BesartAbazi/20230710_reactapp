@@ -1,26 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useLocation, useSearchParams } from 'react-router-dom';
-import { useDispatch } from "react-redux";
+import { useParams, Link } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
 import MainItem from '../MainItem/mainItem';
 import SearchBar from '../SearchBar/searchBar';
-import { loadNews } from './newsSlice';
+import AddItem from '../AddItem/addItem';
 import data from '../../data/data';
-// CSS
+import { loadNews, selectNews } from './newsSlice';
 import './news.css';
 
 const News = (props) => {
     let { id } = useParams();
     const dispatch = useDispatch();
     
-    const [allNews, setAllNews] = useState([]);
+    const allNews = useSelector(selectNews);
     useEffect(() => {
-       dispatch(loadNews(data));
+        if (allNews.length === 0)
+            dispatch(loadNews(data.news));
     }, []);
-    
+
     const [newsData, setNewsData] = useState({});
     const [newsItemFound, setNewsItemFound] = useState(false);
     useEffect(() => {
-        data.news.forEach((item) => {
+        allNews.forEach((item) => {
             if (item.id === id) {
                 setNewsData(item);
                 setNewsItemFound(true);
@@ -28,17 +29,17 @@ const News = (props) => {
         })
     }, [id]);
 
-
     return (
         <main>
-            <SearchBar searchObject={props.searchObject}/>
+            <AddItem object='news'/>
+            <SearchBar searchObject={props.searchObject} />
             {
                 id && newsItemFound ?
                     <MainItem id={newsData.id} date={newsData.date} header={newsData.header} text={newsData.text} />
                     :
                     <>
                         {
-                            data.news.map((item) => {
+                            allNews.map((item) => {
                                 return <MainItem key={item.id} id={item.id} date={item.date} header={item.header} text={item.text} />;
                             })
                         }

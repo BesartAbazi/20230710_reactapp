@@ -5,7 +5,7 @@ export const objectsSlice = createSlice({
     initialState: {
         objects: []
     },
-    reducer: {
+    reducers: {
         loadObjects: (state, action) => {
             state.objects = action.payload;
         },
@@ -25,7 +25,7 @@ export const objectsSlice = createSlice({
 export const selectObjects = (state) => state.objects.objects;
 
 // Actions:
-export const { loadObjects, addObjects, removeObject } = objectsSlice.actions;
+export const { loadObjects, addObject, removeObject } = objectsSlice.actions;
 
 // Reducer:
 export default objectsSlice.reducer;

@@ -5,39 +5,35 @@ import News from '../components/News/news.js';
 import Objects from "../components/Objects/objects.js";
 import AboutUs from '../components/AboutUs/aboutUs.js';
 
-const links = [
+const navigationlinks = [
     {
         id: 1001,
         label: 'Home',
         path: '/',
         url: '/',
-        route: <WelcomePage/>,
-        panelItems: data.home
+        route: <WelcomePage/>
     },
     {
         id: 1002,
         label: 'News',
         path: '/News/:id?',
         url: '/News',
-        route: <News searchObject='news'/>,
-        panelItems: data.news
+        route: <News searchObject='news'/>
     },
     {
         id: 1003,
         label: 'Objects',
         path: '/Objects/:id?',
         url: '/Objects',
-        route: <Objects searchObject='objects'/>,
-        panelItems: data.objects
+        route: <Objects searchObject='objects'/>
     },
     {
         id: 1004,
         label: 'About Us',
         path: '/AboutUs',
         url: '/AboutUs',
-        route: <AboutUs/>,
-        panelItems: data.aboutUs
+        route: <AboutUs/>
     }
 ];
 
-export default links;
+export default navigationlinks;

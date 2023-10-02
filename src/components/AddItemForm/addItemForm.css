@@ -1,0 +1,37 @@
+form {
+    align-self: flex-start;
+}
+
+#itemTitle{
+    margin: 0px 0px 10px 0px;
+    padding: 2px;
+
+    width: 400px;
+    height: auto;
+
+    box-sizing: border-box;
+
+    font-family: 'Calibri';
+    font-size: 11pt;
+    font-weight: bold;
+}
+
+#itemText{
+    margin: 0px 0px 10px 0px;
+    padding: 2px;
+
+    box-sizing: border-box;
+
+    font-family: 'Calibri';
+    font-size: 11pt;
+}
+
+form button {
+    margin: 0px 6px 10px 0px;
+
+    width: 80px;
+
+    font-family: 'Calibri';
+    font-size: 11pt;
+    cursor: pointer;
+}

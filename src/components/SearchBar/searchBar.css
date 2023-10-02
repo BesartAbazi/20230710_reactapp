@@ -36,16 +36,15 @@
     width: 64px;
     height: 24px;
     
-    color: darkslategray;
+    color: black;
     font-family: 'Calibri';
     font-size: 14px;
     font-weight: bold;
-    border: 0px;
-    background-image: url('../../icons/search.svg');
+    border: 1px solid black;
     background-repeat: no-repeat;
     cursor: pointer;
 
-    text-align: right;
+    text-align: center;
     
 
     box-sizing: border-box;

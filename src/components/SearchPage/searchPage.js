@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams, useNavigate } from 'react-router-dom';
 import MainItem from '../MainItem/mainItem';
 import SearchBar from '../SearchBar/searchBar';
-import data from '../../data/data';
+import store from '../../store/store';
 // CSS
 import './searchPage.css';
 
 const SearchPage = () => {
+    const navigate = useNavigate();
+
     let [searchItems, setSearchItems] = useState([]);
     const [searchParams] = useSearchParams();
+
     let searchObject = searchParams.get('searchObject');
     let searchValue = searchParams.get('searchValue');
     useEffect(() => {
@@ -16,9 +19,10 @@ const SearchPage = () => {
 
         if (searchValue) {
             searchValue = searchValue.toLowerCase();
+            const state = store.getState(); 
 
-            data[searchObject].forEach((item) => {
-                if ((String(item.id) + String(item.date) + String(item.header) + String(item.text)).toLocaleLowerCase().includes(searchValue)) {
+            state[searchObject][searchObject].forEach((item) => {
+                if ((String(item.date) + String(item.header) + String(item.text)).toLocaleLowerCase().includes(searchValue)) {
                     if (itemsFound.findIndex((currentItem) => { return Number(currentItem.id) === Number(item.id) }) == -1) {
                         itemsFound.push(item)
                     }
