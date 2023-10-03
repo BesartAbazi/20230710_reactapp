@@ -1,0 +1,13 @@
+.notification{
+    margin: 1% 0.5% 0px 0px;
+    padding: 0px;
+    width: 84%;
+
+    color:rgb(11, 190, 11);
+    font-family: 'Calibri';
+    font-size: 18px;
+    
+    box-sizing: border-box;
+
+    align-items: center;
+}

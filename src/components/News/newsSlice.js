@@ -13,9 +13,10 @@ export const newsSlice = createSlice({
         addNews: (state, action) => {
             state.news.push(action.payload);
         },
+        // { id: 100001, date: '2023-07-01', object: 'news', header: 'News 1', text: 'This is the text of News 1' }
         removeNews: (state, action) => {
-            return state.news.filter(item => {
-                return item.id !== action.payload;
+            state.news = state.news.filter(item => {
+                return item.id !== action.payload.id ? action.payload : null
             })
         }
     }

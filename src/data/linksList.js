@@ -11,6 +11,7 @@ const navigationlinks = [
         label: 'Home',
         path: '/',
         url: '/',
+        type: 'home',
         route: <WelcomePage/>
     },
     {
@@ -18,6 +19,7 @@ const navigationlinks = [
         label: 'News',
         path: '/News/:id?',
         url: '/News',
+        type: 'news',
         route: <News searchObject='news'/>
     },
     {
@@ -25,6 +27,7 @@ const navigationlinks = [
         label: 'Objects',
         path: '/Objects/:id?',
         url: '/Objects',
+        type: 'objects',
         route: <Objects searchObject='objects'/>
     },
     {
@@ -32,6 +35,7 @@ const navigationlinks = [
         label: 'About Us',
         path: '/AboutUs',
         url: '/AboutUs',
+        type: 'aboutUs',
         route: <AboutUs/>
     }
 ];

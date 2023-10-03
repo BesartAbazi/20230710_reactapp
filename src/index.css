@@ -5,6 +5,7 @@ body {
     background-image: url('./images/backgroundImage.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    
     font-family: 'Montserrat', 'Open Sans', 'Roboto', Calibri;
 
     box-sizing: border-box;

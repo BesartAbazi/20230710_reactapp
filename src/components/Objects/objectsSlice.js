@@ -9,13 +9,14 @@ export const objectsSlice = createSlice({
         loadObjects: (state, action) => {
             state.objects = action.payload;
         },
-        // { id: 100001, date: '2023-07-01', header: 'News 1', text: 'This is the text of News 1' }
+        // { id: 100001, date: '2023-07-01', header: 'Object 1', text: 'This is the text of Object 1' }
         addObject: (state, action) => {
             state.objects.push(action.payload);
         },
+        // { id: 100001, date: '2023-07-01', object: 'object', header: 'Object 1', text: 'This is the text of Object 1' }
         removeObject: (state, action) => {
-            return state.objects.filter(item => {
-                return item.id !== action.payload;
+            state.objects = state.objects.filter(item => {
+                return item.id !== action.payload.id ? action.payload : null
             })
         }
     }

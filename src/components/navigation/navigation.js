@@ -1,18 +1,32 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
 // import data
 import { default as navigationlinks } from '../../data/linksList.js';
-import store from '../../store/store.js';
 // import css
 import './navigation.css';
 // import logos
 import { default as menuLogo } from '../../icons/menu.svg';
-import Objects from '../Objects/objects.js';
 
-const Navigation = () => {
+import data from '../../data/data.js';
+import { loadNews, selectNews } from '../News/newsSlice';
+import { loadObjects, selectObjects } from '../Objects/objectsSlice.js';
+
+const Navigation = (props) => {
     const [navBarActive, setNavBarActive] = useState(false);
+    const dispatch = useDispatch();
+    const store = props.store.getState();
 
-    const linkItems = store.getState();
+    // Load data
+    const allNews = useSelector(selectNews);
+    const allObjects = useSelector(selectObjects);
+    useEffect(() => {
+        if (allNews.length === 0)
+            dispatch(loadNews(data.news));
+        
+        if (allObjects.length === 0)
+            dispatch(loadObjects(data.objects));
+    }, []);
 
     useEffect(() => {
         let root = document.getElementById('root');
@@ -40,23 +54,25 @@ const Navigation = () => {
                     navigationlinks.map((link) => {
                         return (
                             <>
-                                <div className="navPanel" onClick={ () => { toggleNavBarPanel(link.id)} }> 
+                                <div className="navPanel" onClick={ () => { toggleNavBarPanel(link.id) } }> 
                                     {
                                         <Link to={ link.url }>
                                             { link.label }
-                                         </Link>
+                                        </Link>
                                     } 
                                 </div>
-                                <div className="navPanelItems" id={ link.id }> {console.log(1, Objects.entries())}
+                                <div className="navPanelItems" id={ link.id }>
                                     {
-                                        linkItems[link.label][link.label] ? 
-                                        linkItems[link.label][link.label].map((item) => {
-                                            return (
-                                                <Link to={`/${link.label}/${item.id}`}>
-                                                    { item.header }
-                                                </Link>
-                                            );
-                                        }) : null
+                                        store[link.type] ?
+                                            store[link.type][link.type]?.map((item) => {
+                                                return (
+                                                    <Link to={`/${link.label}/${item.id}`}>
+                                                        { item.header }
+                                                    </Link>
+                                                );
+                                            }) 
+                                            : 
+                                            null
                                     }
                                 </div>
                             </>

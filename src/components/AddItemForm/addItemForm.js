@@ -8,7 +8,6 @@ import './addItemForm.css';
 
 const AddItemForm = () => {
     const dispatch = useDispatch();
-    const allNews = useSelector(selectNews);
     const navigate = useNavigate();
     const location = useLocation();
     const itemTitle = useRef();
@@ -23,17 +22,17 @@ const AddItemForm = () => {
         e.preventDefault();
 
         const date = new Date().toISOString().toString().replace('T', ' ').slice(0, 19);
-
+       
         const newItem = {
             id: uuid(),
             date: date,
             header: itemTitle.current.value,
-            text: itemText.current.value
+            text: itemText.current.value.replace(/\r?\n/g, '<br />')
         }
 
         switch(itemType){
-            case 'news': dispatch(addNews(newItem));
-            case 'object': dispatch(addObject(newItem));
+            case 'news': dispatch(addNews(newItem)); break;
+            case 'object': dispatch(addObject(newItem)); break;
             default: break;
         }
 

@@ -20,10 +20,12 @@ form {
     margin: 0px 0px 10px 0px;
     padding: 2px;
 
-    box-sizing: border-box;
-
     font-family: 'Calibri';
     font-size: 11pt;
+
+    white-space:pre-wrap;
+
+    box-sizing: border-box;
 }
 
 form button {

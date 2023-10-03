@@ -24,18 +24,18 @@ nav{
 
 .navActive{
     width: 15%;
-    transition: all 0.2s;
+    transition: all 0.4s;
 }
 
 .navNonActive{
     width: 40px;
-    transition: all 0.2s;
+    transition: all 0.4s;
 }
 
 .navNonActive:hover{
     background-color: rgb(62, 99, 99);
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.4s;
 }
 
 nav img{
@@ -108,4 +108,8 @@ nav a:hover{
     align-items: flex-start;
     justify-content: right;
     align-content: flex-start;
+}
+
+.navPanelItems a{
+    font-size: 12px;
 }
