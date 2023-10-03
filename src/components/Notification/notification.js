@@ -3,8 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectNotification, setNotification } from "./notificationSlice";
 import './notification.css';
 
-const Notification = (props) => {
-    const store = props.store.getState();
+const Notification = () => {
     const dispatch = useDispatch();
     const notification = useSelector(selectNotification);
 

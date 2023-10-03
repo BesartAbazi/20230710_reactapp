@@ -14,7 +14,7 @@ function App() {
         <>
             <Navigation store={store}/>
             <Header />
-            <Notification store={store}/>
+            <Notification/>
             <Routes>
                 {
                     navigationlinks.map((link) => {
