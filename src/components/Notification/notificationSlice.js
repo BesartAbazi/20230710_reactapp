@@ -9,6 +9,14 @@ export const notificationSlice = createSlice({
         setNotification: (state, action) => {
             state.notification = action.payload;
         },
+    },
+    extraReducers: {
+        'news/removeNews': (state, action) => {
+            state.notification = `Success: Item deleted (${action.payload.object}) with title: "${action.payload.header}".`;
+        },
+        'objects/removeObject': (state, action) => {
+            state.notification = `Success: Item deleted (${action.payload.object}) with title: "${action.payload.header}".`;
+        }
     }
 });
 

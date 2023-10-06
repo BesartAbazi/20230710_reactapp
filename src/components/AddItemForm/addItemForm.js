@@ -21,6 +21,9 @@ const AddItemForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (itemTitle.current.value === '' || itemText.current.value === '') 
+            return;
+
         const date = new Date().toISOString().toString().replace('T', ' ').slice(0, 19);
        
         const newItem = {

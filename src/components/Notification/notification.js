@@ -9,14 +9,13 @@ const Notification = () => {
 
     useEffect(() => {
         let timeoutID = setTimeout(() => {
-            dispatch(setNotification(''))
-
+            dispatch(setNotification(''));
         }, 3000);
 
         return function clearUpFunction(){
             clearTimeout(timeoutID);
         }
-    }, [notification.notification])
+    }, [notification.notification]);
 
     return (
         <p className="notification"> { notification.notification } </p>

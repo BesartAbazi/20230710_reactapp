@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { removeNews } from '../News/newsSlice';
 import { removeObject } from '../Objects/objectsSlice';
-import { selectNotification, setNotification } from "../Notification/notificationSlice";
 import './mainItem.css';
 
 const MainItem = (props) => {
@@ -16,8 +15,6 @@ const MainItem = (props) => {
             case 'objects': dispatch(removeObject(props)); break;
             default: break;
         }
-
-        dispatch(setNotification(`Success: Item deleted (${props.object}) with title: "${props.header}".`))
 
         navigate('/' + props.object);
     }
